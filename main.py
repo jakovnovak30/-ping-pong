@@ -18,11 +18,12 @@ def igra():
     igrac1.nacrtaj(ekran)
     igrac2.nacrtaj(ekran)
     lopta1.nacrtaj(ekran)
+    bg = pygame.image.load("pong.jpeg")
 
     vura = pygame.time.Clock()
 
     while True:
-        ekran.fill((0,0,0))
+        ekran.blit(bg, (0,0))
         mesg1 = pygame.font.SysFont("retrogaming", 30).render('Skor1: ' + str(skor1), True, (255,255,255))
         mesg2 = pygame.font.SysFont("retrogaming", 30).render('Skor2: ' + str(skor2), True, (255,255,255))
         ekran.blit(mesg1, [20, 40])
