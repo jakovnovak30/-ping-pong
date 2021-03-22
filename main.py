@@ -48,7 +48,7 @@ def igra():
     lopta1.nacrtaj(ekran)
     bg = pygame.image.load("pong.jpeg")
     while traje:
-        ekran.blit(bg, (0,0))        
+        ekran.blit(bg, (0,0))
         mesg1 = pygame.font.SysFont("retrogaming", 30).render('Skor1: ' + str(skor1), True, (255,255,255))
         mesg2 = pygame.font.SysFont("retrogaming", 30).render('Skor2: ' + str(skor2), True, (255,255,255))
         ekran.blit(mesg1, [20, 40])
@@ -76,9 +76,8 @@ def igra():
                 lopta1.zadnji = 1
 
                 odsredine = min(abs(lopta1.k[1] - igrac1.t2[1]), abs(lopta1.k[1] - igrac1.t1[1]))
-                if odsredine != 0: kut = math.atan(8/odsredine)
-                else:
-                    kut = math.pi
+                kut = math.atan((8+abs(lopta1.brzinav))/(odsredine+lopta1.brzinah))
+
                 brzina = math.sqrt(pow(lopta1.brzinah, 2) + pow(lopta1.brzinav, 2))
 
                 lopta1.brzinah = brzina*math.cos(kut)
@@ -90,9 +89,7 @@ def igra():
                 lopta1.zadnji = 2
 
                 odsredine = min(abs(lopta1.k[1] - igrac2.t2[1]), abs(lopta1.k[1] - igrac2.t1[1]))
-                if odsredine != 0: kut = math.atan(8/odsredine)
-                else:
-                    kut = math.pi
+                kut = math.atan((8+abs(lopta1.brzinav))/(odsredine+lopta1.brzinah))
 
                 brzina = math.sqrt(pow(lopta1.brzinah, 2) + pow(lopta1.brzinav, 2))
 
