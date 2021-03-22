@@ -49,8 +49,12 @@ def igra():
             if igrac1.t1[1] <= lopta1.k[1] and igrac1.t2[1] >= lopta1.k[1]:
                 lopta1.zadnji = 1
 
-                lopta1.brzinah *= -1*round(random.randrange(7, 13)/10)
-                lopta1.brzinav *= -1*round(random.randrange(7, 13)/10)
+                if abs(lopta1.k[1] - igrac1.t1[1]) < abs(lopta1.k[1] - igrac1.t2[1]):
+                    lopta1.brzinah *= -1*round(random.randrange(7, 13)/10)
+                    lopta1.brzinav = abs(lopta1.brzinav * round(random.randrange(7, 13)/10))
+                else:
+                    lopta1.brzinah *= -1*round(random.randrange(7, 13)/10)
+                    lopta1.brzinav = -1*abs(lopta1.brzinav * round(random.randrange(7, 13)/10))
 
                 lopta1.brzina = random.randrange(3,7)
 
@@ -58,8 +62,12 @@ def igra():
             if igrac2.t1[1] <= lopta1.k[1] and igrac2.t2[1] >= lopta1.k[1]:
                 lopta1.zadnji = 2
 
-                lopta1.brzinah *= -1*round(random.randrange(7, 13)/10)
-                lopta1.brzinav *= -1*round(random.randrange(7, 13)/10)
+                if abs(lopta1.k[1] - igrac2.t1[1]) < abs(lopta1.k[1] - igrac2.t2[1]):
+                    lopta1.brzinah *= -1*round(random.randrange(7, 13)/10)
+                    lopta1.brzinav = abs(lopta1.brzinav * round(random.randrange(7, 13)/10))
+                else:
+                    lopta1.brzinah *= -1*round(random.randrange(7, 13)/10)
+                    lopta1.brzinav = -1*abs(lopta1.brzinav * round(random.randrange(7, 13)/10))
 
                 lopta1.brzina = random.randrange(3,7)
 
@@ -71,8 +79,6 @@ def igra():
             elif promjena == 2:
                 skor2 = skor2 + 1
             lopta1 = lopta1 = lopta.Lopta((350,250))
-
-        print('Skor1: ' + str(skor1) + ', Skor2: ' + str(skor2))
 
         lopta1.nacrtaj(ekran)
         igrac1.nacrtaj(ekran)
