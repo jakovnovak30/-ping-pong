@@ -4,8 +4,20 @@ import random
 class Lopta:
     def __init__(self, tocka):
         self.k = tocka
-        self.brzinah = random.randrange(-7, 7)
-        self.brzinav = random.randrange(-7, 7)
+
+        smjer1 = random.randrange(0,1)
+        smjer2 = random.randrange(0,1)
+
+        if smjer1 == 0:
+            self.brzinah = random.randrange(-8, -4)
+        else:
+            self.brzinah = random.randrange(4, 8)
+
+        if smjer2 == 0:
+            self.brzinav = random.randrange(-8, 4)
+        else:
+            self.brzinav = random.randrange(4, 8)    
+
         self.zadnji = 0 #ko je zadnji diral loptu
 
     def nacrtaj(self, ekran):

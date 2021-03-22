@@ -49,8 +49,8 @@ def igra():
             if igrac1.t1[1] <= lopta1.k[1] and igrac1.t2[1] >= lopta1.k[1]:
                 lopta1.zadnji = 1
 
-                lopta1.brzinah *= -1
-                lopta1.brzinav *= -1
+                lopta1.brzinah *= -1*round(random.randrange(7, 13)/10)
+                lopta1.brzinav *= -1*round(random.randrange(7, 13)/10)
 
                 lopta1.brzina = random.randrange(3,7)
 
@@ -58,8 +58,8 @@ def igra():
             if igrac2.t1[1] <= lopta1.k[1] and igrac2.t2[1] >= lopta1.k[1]:
                 lopta1.zadnji = 2
 
-                lopta1.brzinah *= -1
-                lopta1.brzinav *= -1
+                lopta1.brzinah *= -1*round(random.randrange(7, 13)/10)
+                lopta1.brzinav *= -1*round(random.randrange(7, 13)/10)
 
                 lopta1.brzina = random.randrange(3,7)
 
