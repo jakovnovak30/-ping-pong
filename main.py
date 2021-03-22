@@ -52,10 +52,10 @@ def igra():
 
                 if abs(lopta1.k[1] - igrac1.t1[1]) < abs(lopta1.k[1] - igrac1.t2[1]):
                     lopta1.brzinah *= -1*round(random.randrange(7, 13)/10)
-                    lopta1.brzinav = abs(lopta1.brzinav * round(random.randrange(7, 13)/10))
+                    lopta1.brzinav = round(abs(lopta1.brzinav * random.randrange(7, 13)/10))
                 else:
                     lopta1.brzinah *= -1*round(random.randrange(7, 13)/10)
-                    lopta1.brzinav = -1*abs(lopta1.brzinav * round(random.randrange(7, 13)/10))
+                    lopta1.brzinav = -1*round(abs(lopta1.brzinav * random.randrange(7, 13)/10))
 
                 lopta1.brzina = random.randrange(3,7)
 
