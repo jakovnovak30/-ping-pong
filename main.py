@@ -83,9 +83,10 @@ def igra():
             elif tipke[pygame.K_s]:
                 igrac1.dole(ekran)
         else:
-            if igrac1.t1[1] + 50 < lopta1.k[1]:
+            sredina = round((igrac1.t1[1]+igrac1.t2[1])/2)
+            if sredina + 15 < lopta1.k[1]:
                 igrac1.dole(ekran)
-            elif igrac1.t2[1] + 50 > lopta1.k[1]:
+            elif sredina + 15 > lopta1.k[1]:
                 igrac1.gore(ekran)
 
         for event in pygame.event.get():
