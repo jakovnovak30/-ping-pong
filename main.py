@@ -8,8 +8,35 @@ pygame.init()
 ekran = pygame.display.set_mode((700, 500))
 pygame.display.set_caption('ping(pong)')
 pygame.display.update()
+vura = pygame.time.Clock()
+pocetak = False
+
+mesg1 = pygame.font.SysFont("retrogaming", 60).render('(Ping)Pong', True, (255,255,255))
+ekran.blit(mesg1, [250, 100])
+slika = pygame.image.load("pocetna.png")
+ekran.blit(slika, (200,250))
+x = 0
+while not pocetak:
+    x = x + 1
+    if x%2 == 1:
+        mesg2 = pygame.font.SysFont("retrogaming", 30).render('Press any key to start', True, (255,255,255))
+        ekran.blit(mesg2, [250, 200])
+    else:
+        pygame.draw.rect(ekran, (0,0,0), [250, 200, 250, 30])
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            quit()
+        if event.type == pygame.KEYDOWN:
+            pocetak = True
+
+    pygame.display.update()
+    vura.tick(6)
 
 def igra():
+    traje = True
+    pobednik = 0
     skor1 = 0
     skor2 = 0
     igrac1 = igrac.Plejer((50,200), (50,300))
@@ -20,11 +47,8 @@ def igra():
     igrac2.nacrtaj(ekran)
     lopta1.nacrtaj(ekran)
     bg = pygame.image.load("pong.jpeg")
-
-    vura = pygame.time.Clock()
-
-    while True:
-        ekran.blit(bg, (0,0))
+    while traje:
+        ekran.blit(bg, (0,0))        
         mesg1 = pygame.font.SysFont("retrogaming", 30).render('Skor1: ' + str(skor1), True, (255,255,255))
         mesg2 = pygame.font.SysFont("retrogaming", 30).render('Skor2: ' + str(skor2), True, (255,255,255))
         ekran.blit(mesg1, [20, 40])
@@ -85,6 +109,13 @@ def igra():
                 skor2 = skor2 + 1
             lopta1 = lopta1 = lopta.Lopta((350,300))
 
+        if skor1 >= 10:
+            traje = False
+            pobednik = 1
+        elif skor2 >= 10:
+            traje = False
+            pobednik = 2
+
         lopta1.nacrtaj(ekran)
         igrac1.nacrtaj(ekran)
         igrac2.nacrtaj(ekran)
@@ -92,5 +123,23 @@ def igra():
         pygame.display.update()
         vura.tick(30)
 
+    while True:
+        ekran.fill((0,0,0))
+        mesg1 = pygame.font.SysFont("retrogaming", 55).render('Plejer ' + str(pobednik) + ' won!', True, (255,255,255))
+        mesg2 = pygame.font.SysFont("retrogaming", 40).render('Press r to replay or q to quit.', True, (255,255,255))
+        ekran.blit(mesg1, [50, 200])
+        ekran.blit(mesg2, [50, 300])
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_q:
+                    pygame.quit()
+                    quit()
+                elif event.key == pygame.K_r:
+                    igra()
+        vura.tick(20)
 #vuzgi igru
 igra()
