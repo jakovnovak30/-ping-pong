@@ -32,8 +32,10 @@ class Lopta:
         y = y + self.brzinav
         x = x + round(self.brzinah*1.5)
 
-        if x < 45 or x > 655 or y < 0 or y > 500:
+        if x < 45 or x > 655:
             return self.zadnji
+        if y < 0 or y > 500:
+            return 0
 
         self.k = (x,y)
         return -1
