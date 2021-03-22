@@ -97,7 +97,7 @@ def igra():
         if igrac1.t1[0] + 13 >= lopta1.k[0]:
             if igrac1.t1[1] <= lopta1.k[1] and igrac1.t2[1] >= lopta1.k[1]:
                 odsredine = min(abs(lopta1.k[1] - igrac1.t2[1]), abs(lopta1.k[1] - igrac1.t1[1]))
-                kut = math.atan((8+abs(lopta1.brzinav))/(odsredine+lopta1.brzinah))
+                kut = math.atan((8+abs(lopta1.brzinav))/(odsredine+abs(lopta1.brzinah)))
 
                 brzina = math.sqrt(pow(lopta1.brzinah, 2) + pow(lopta1.brzinav, 2))
 
@@ -108,7 +108,7 @@ def igra():
         elif igrac2.t1[0] <= lopta1.k[0] + 13:
             if igrac2.t1[1] <= lopta1.k[1] and igrac2.t2[1] >= lopta1.k[1]:
                 odsredine = min(abs(lopta1.k[1] - igrac2.t2[1]), abs(lopta1.k[1] - igrac2.t1[1]))
-                kut = math.atan((8+abs(lopta1.brzinav))/(odsredine+lopta1.brzinah))
+                kut = math.atan((8+abs(lopta1.brzinav))/(odsredine+abs(lopta1.brzinah)))
 
                 brzina = math.sqrt(pow(lopta1.brzinah, 2) + pow(lopta1.brzinav, 2))
 
