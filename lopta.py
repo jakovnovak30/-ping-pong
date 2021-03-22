@@ -18,8 +18,6 @@ class Lopta:
         else:
             self.brzinav = random.randrange(2, 4)
 
-        self.zadnji = 0 #ko je zadnji diral loptu
-
     def nacrtaj(self, ekran):
         pygame.draw.circle(ekran, (255,255,255), self.k, 8)
 
@@ -32,8 +30,10 @@ class Lopta:
         y = y + self.brzinav
         x = x + round(self.brzinah*1.5)
 
-        if x < 45 or x > 655:
-            return self.zadnji
+        if x < 45:
+            return 2
+        elif x > 655:
+            return 1
         if y < 0 or y > 500:
             return 0
 

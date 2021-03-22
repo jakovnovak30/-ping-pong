@@ -94,10 +94,8 @@ def igra():
                 pygame.quit()
                 quit()
 
-        if igrac1.t1[0] + 13 >= lopta1.k[0] and (lopta1.zadnji == 2 or lopta1.zadnji == 0):
+        if igrac1.t1[0] + 13 >= lopta1.k[0]:
             if igrac1.t1[1] <= lopta1.k[1] and igrac1.t2[1] >= lopta1.k[1]:
-                lopta1.zadnji = 1
-
                 odsredine = min(abs(lopta1.k[1] - igrac1.t2[1]), abs(lopta1.k[1] - igrac1.t1[1]))
                 kut = math.atan((8+abs(lopta1.brzinav))/(odsredine+lopta1.brzinah))
 
@@ -107,10 +105,8 @@ def igra():
 
                 lopta1.brzina = brzina*math.sin(kut)
 
-        elif igrac2.t1[0] <= lopta1.k[0] + 13 and (lopta1.zadnji == 1 or lopta1.zadnji == 0):
+        elif igrac2.t1[0] <= lopta1.k[0] + 13:
             if igrac2.t1[1] <= lopta1.k[1] and igrac2.t2[1] >= lopta1.k[1]:
-                lopta1.zadnji = 2
-
                 odsredine = min(abs(lopta1.k[1] - igrac2.t2[1]), abs(lopta1.k[1] - igrac2.t1[1]))
                 kut = math.atan((8+abs(lopta1.brzinav))/(odsredine+lopta1.brzinah))
 
