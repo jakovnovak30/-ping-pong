@@ -45,7 +45,7 @@ def igra():
                 pygame.quit()
                 quit()
 
-        if igrac1.t1[0] + 13 >= lopta1.k[0]:
+        if igrac1.t1[0] + 13 >= lopta1.k[0] and lopta1.zadnji == 2:
             if igrac1.t1[1] <= lopta1.k[1] and igrac1.t2[1] >= lopta1.k[1]:
                 lopta1.zadnji = 1
 
@@ -58,7 +58,7 @@ def igra():
 
                 lopta1.brzina = random.randrange(3,7)
 
-        elif igrac2.t1[0] <= lopta1.k[0] + 13:
+        elif igrac2.t1[0] <= lopta1.k[0] + 13 and lopta1.zadnji == 1:
             if igrac2.t1[1] <= lopta1.k[1] and igrac2.t2[1] >= lopta1.k[1]:
                 lopta1.zadnji = 2
 
