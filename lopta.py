@@ -14,7 +14,7 @@ class Lopta:
             self.brzinah = random.randrange(4, 8)
 
         if smjer2 == 0:
-            self.brzinav = random.randrange(-8, 4)
+            self.brzinav = random.randrange(-8, -4)
         else:
             self.brzinav = random.randrange(4, 8)    
 
