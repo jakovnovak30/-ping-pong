@@ -34,6 +34,22 @@ while not pocetak:
     pygame.display.update()
     vura.tick(6)
 
+ekran.fill((0,0,0))
+mesg = pygame.font.SysFont("retrogaming", 35).render('Za singleplayer pritisnite 1, a za multi 2', True, (255,255,255))
+ekran.blit(mesg, [100,200])
+pygame.display.update()
+game_mode = -1
+while game_mode == -1:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            quit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_1:
+                game_mode = 1
+            elif event.key == pygame.K_2:
+                game_mode = 2
+
 def igra():
     traje = True
     pobednik = 0
@@ -61,10 +77,16 @@ def igra():
         elif tipke[pygame.K_UP]:
             igrac2.gore(ekran)
 
-        if tipke[pygame.K_w]:
-            igrac1.gore(ekran)
-        elif tipke[pygame.K_s]:
-            igrac1.dole(ekran)
+        if game_mode == 2:
+            if tipke[pygame.K_w]:
+                igrac1.gore(ekran)
+            elif tipke[pygame.K_s]:
+                igrac1.dole(ekran)
+        else:
+            if igrac1.t1[1] + 50 < lopta1.k[1]:
+                igrac1.dole(ekran)
+            elif igrac1.t2[1] + 50 > lopta1.k[1]:
+                igrac1.gore(ekran)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
