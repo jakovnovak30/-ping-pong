@@ -35,7 +35,7 @@ class Lopta:
         elif x > 655:
             return 1
         if y < 0 or y > 500:
-            return 0
+            self.brzinav *= -1
 
         self.k = (x,y)
         return -1
