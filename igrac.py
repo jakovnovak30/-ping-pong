@@ -17,7 +17,7 @@ class Plejer:
         x2 = self.t2[0]
         y2 = self.t2[1] + 7
 
-        if y2 <= 495:
+        if y2 <= 500:
             self.t1 = (x1, y1)
             self.t2 = (x2, y2)
             return
@@ -33,7 +33,7 @@ class Plejer:
         x2 = self.t2[0]
         y2 = self.t2[1] - 7
 
-        if y1 >= 45:
+        if y1 >= 0:
             self.t1 = (x1, y1)
             self.t2 = (x2, y2)
             return
