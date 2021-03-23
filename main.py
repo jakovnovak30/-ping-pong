@@ -49,6 +49,8 @@ while game_mode == -1:
                 game_mode = 1
             elif event.key == pygame.K_2:
                 game_mode = 2
+            else:
+                game_mode = 3
 
 def igra():
     traje = True
@@ -72,10 +74,17 @@ def igra():
 
         tipke = pygame.key.get_pressed()
 
-        if tipke[pygame.K_DOWN]:
-            igrac2.dole(ekran)
-        elif tipke[pygame.K_UP]:
-            igrac2.gore(ekran)
+        if game_mode == 3:
+            sredina = round((igrac2.t1[1]+igrac2.t2[1])/2)
+            if sredina + 15 < lopta1.k[1]:
+                igrac2.dole(ekran)
+            elif sredina - 15 > lopta1.k[1]:
+                igrac2.gore(ekran)
+        else:
+            if tipke[pygame.K_DOWN]:
+                igrac2.dole(ekran)
+            elif tipke[pygame.K_UP]:
+                igrac2.gore(ekran)
 
         if game_mode == 2:
             if tipke[pygame.K_w]:
