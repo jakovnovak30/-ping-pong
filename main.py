@@ -108,7 +108,7 @@ def igra():
                 odsredine = min(abs(lopta1.k[1] - igrac1.t2[1]), abs(lopta1.k[1] - igrac1.t1[1]))
                 kut = math.atan((8+abs(lopta1.brzinav))/(odsredine+abs(lopta1.brzinah)))
 
-                brzina = math.sqrt(pow(lopta1.brzinah, 2) + pow(lopta1.brzinav, 2))
+                brzina = math.sqrt(pow(lopta1.brzinah, 2) + pow(lopta1.brzinav, 2)) * 1.3
 
                 lopta1.brzinah = brzina*math.cos(kut)
 
@@ -119,7 +119,7 @@ def igra():
                 odsredine = min(abs(lopta1.k[1] - igrac2.t2[1]), abs(lopta1.k[1] - igrac2.t1[1]))
                 kut = math.atan((8+abs(lopta1.brzinav))/(odsredine+abs(lopta1.brzinah)))
 
-                brzina = math.sqrt(pow(lopta1.brzinah, 2) + pow(lopta1.brzinav, 2))
+                brzina = math.sqrt(pow(lopta1.brzinah, 2) + pow(lopta1.brzinav, 2)) * 1.3
 
                 lopta1.brzinah = -1*brzina*math.cos(kut)
 
@@ -146,7 +146,7 @@ def igra():
         igrac2.nacrtaj(ekran)
 
         pygame.display.update()
-        vura.tick(30)
+        vura.tick(50)
 
     while True:
         ekran.fill((0,0,0))
